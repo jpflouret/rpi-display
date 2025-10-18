@@ -1,0 +1,7 @@
+services:
+  display:
+    container_name: display
+    image: ghcr.io/jpflouret/rpi-display:latest
+    privileged: true
+    network_mode: host
+    restart: unless-stopped
