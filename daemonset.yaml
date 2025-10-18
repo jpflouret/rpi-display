@@ -1,0 +1,42 @@
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  labels:
+    app.kubernetes.io/component: display
+    app.kubernetes.io/name: rpi-display
+  name: rpi-display
+spec:
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: display
+      app.kubernetes.io/name: rpi-display
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/component: display
+        app.kubernetes.io/name: rpi-display
+    spec:
+      containers:
+      - image: ghcr.io/jpflouret/rpi-display:latest
+        imagePullPolicy: Always
+        name: rpi-display
+        resources:
+          limits:
+            cpu: 200m
+            memory: 128Mi
+          requests:
+            cpu: 100m
+            memory: 64Mi
+        securityContext:
+          privileged: true
+      hostNetwork: true
+      restartPolicy: Always
+      tolerations:
+      - effect: NoSchedule
+        key: node-role.kubernetes.io/master
+        operator: Exists
+      - effect: NoSchedule
+        key: node-role.kubernetes.io/control-plane
+        operator: Exists
