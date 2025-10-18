@@ -1,0 +1,14 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+venv/
+.venv/
+.DS_Store
+.DS_Store?
+._*
+*.md
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
