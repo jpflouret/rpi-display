@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+venv/
+.venv/
+.DS_Store
+.DS_Store?
+._*
+*.md
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+.git/
+.gitignore
+.vscode/
+
+Dockerfile
+docker-compose.yml
+.dockerignore
